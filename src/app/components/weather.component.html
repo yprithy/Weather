@@ -1,0 +1,25 @@
+<form novalidate (ngSubmit)="getWeather()"
+#weatherForm="ngForm">
+
+City name:
+
+<input type="text" name="cityName" id="cityName" ngModel required>
+
+<button type="submit" [disabled]="!weatherForm.valid">
+Get Weather
+</button>
+
+</form>
+
+<table>
+<tr *ngFor="let w of weatherOfCities">
+<td>
+<img src="http://openweathermap.org/img/w/{{w.icon}}.png" alt="">
+</td>
+<td>
+<strong>{{ w.main}} - {{ w.description }}</strong>
+
+</td>
+</tr>
+
+</table>
